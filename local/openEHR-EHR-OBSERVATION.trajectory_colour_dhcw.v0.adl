@@ -1,0 +1,98 @@
+archetype (adl_version=1.4; uid=aeeae62b-ce9a-4a36-b203-9b9497392bc8)
+	openEHR-EHR-OBSERVATION.trajectory_colour_dhcw.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+
+description
+	original_author = <
+		["date"] = <"2022-07-07">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"41043434d482dcf97dfc873759decb06">
+		["build_uid"] = <"ed6b1447-eeb5-3a61-a246-a2a786eea4c1">
+	>
+
+definition
+	OBSERVATION[at0000] matches {    -- Palliative Phase of Illness (Paediatric)
+		data matches {
+			HISTORY[at0001] matches {    -- History
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..*} matches {    -- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {    -- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0004] occurrences matches {0..1} matches {    -- Trajectory Colour
+										value matches {
+											1|[local::at0005],
+											2|[local::at0006],
+											4|[local::at0007],
+											5|[local::at0008]
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Palliative Phase of Illness (Paediatric)">
+					description = <"trajectory_colour_dhcw">
+				>
+				["at0001"] = <
+					text = <"History">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Trajectory Colour">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"Red - you would be surprised if this child survived more than 2 months">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"Amber - you would not be surprised if this child were to die in the next 6 months">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"Yellow - you would not be surprised if this child died within the next 12 months">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"Green - anything else in a palliative patient (as opposed to chronic pain)">
+					description = <"">
+				>
+			>
+		>
+	>
