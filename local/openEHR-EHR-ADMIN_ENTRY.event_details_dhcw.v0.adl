@@ -1,0 +1,291 @@
+archetype (adl_version=1.4; uid=261450df-0171-4864-8da8-81986fd9bdec)
+	openEHR-EHR-ADMIN_ENTRY.event_details_dhcw.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+
+description
+	original_author = <
+		["date"] = <"2022-07-07">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"64201234e85a21805211e0deba870666">
+		["build_uid"] = <"5eaa923f-e2d1-3f50-be99-070ab862e424">
+	>
+
+definition
+	ADMIN_ENTRY[at0000] matches {    -- Event details
+		data matches {
+			ITEM_TREE[at0001] matches {    -- Item tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0003] occurrences matches {0..1} matches {    -- Date
+						value matches {
+							DV_DATE matches {*}
+						}
+					}
+					ELEMENT[at0004] occurrences matches {0..1} matches {    -- Time
+						value matches {
+							DV_TIME matches {*}
+						}
+					}
+					ELEMENT[at0005] occurrences matches {0..1} matches {    -- Site type
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0041] occurrences matches {0..1} matches {    -- Site name
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0006] occurrences matches {0..1} matches {    -- Event lead professional
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0017] occurrences matches {0..1} matches {    -- Role
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0018] occurrences matches {0..1} matches {    -- Specialty
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0048] occurrences matches {0..1} matches {    -- Outside normal working hours
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0049,    -- Yes
+									at0050]    -- No
+								}
+							}
+						}
+					}
+					ELEMENT[at0051] occurrences matches {0..1} matches {    -- Unscheduled care
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0052,    -- Yes
+									at0053]    -- No
+								}
+							}
+						}
+					}
+					ELEMENT[at0043] occurrences matches {0..1} matches {    -- Patient present
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0046,    -- Yes
+									at0047]    -- No
+								}
+							}
+						}
+					}
+					CLUSTER[at0012] occurrences matches {0..*} matches {    -- Additional healthcare professionals present
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0014] occurrences matches {0..1} matches {    -- Name
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0015] occurrences matches {0..1} matches {    -- Role
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0042] occurrences matches {0..1} matches {    -- Specialty
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+					CLUSTER[at0020] occurrences matches {0..*} matches {    -- Other professionals present
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0021] occurrences matches {0..1} matches {    -- Name
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0022] occurrences matches {0..1} matches {    -- Role
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+					CLUSTER[at0023] occurrences matches {0..*} matches {    -- Family / carers present
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0024] occurrences matches {0..1} matches {    -- Name
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0025] occurrences matches {0..1} matches {    -- Relationship
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+					ELEMENT[at0039] occurrences matches {0..1} matches {    -- Enter review type
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0040] occurrences matches {0..1} matches {    -- Comments
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Event details">
+					description = <"event_details_dhcw">
+				>
+				["at0001"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0003"] = <
+					text = <"Date">
+					description = <"">
+				>
+				["at0004"] = <
+					text = <"Time">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"Site type">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"Event lead professional">
+					description = <"">
+				>
+				["at0012"] = <
+					text = <"Additional healthcare professionals present">
+					description = <"">
+				>
+				["at0014"] = <
+					text = <"Name">
+					description = <"">
+				>
+				["at0015"] = <
+					text = <"Role">
+					description = <"">
+				>
+				["at0017"] = <
+					text = <"Role">
+					description = <"">
+				>
+				["at0018"] = <
+					text = <"Specialty">
+					description = <"">
+				>
+				["at0020"] = <
+					text = <"Other professionals present">
+					description = <"">
+				>
+				["at0021"] = <
+					text = <"Name">
+					description = <"">
+				>
+				["at0022"] = <
+					text = <"Role">
+					description = <"">
+				>
+				["at0023"] = <
+					text = <"Family / carers present">
+					description = <"">
+				>
+				["at0024"] = <
+					text = <"Name">
+					description = <"">
+				>
+				["at0025"] = <
+					text = <"Relationship">
+					description = <"">
+				>
+				["at0039"] = <
+					text = <"Enter review type">
+					description = <"">
+				>
+				["at0040"] = <
+					text = <"Comments">
+					description = <"">
+				>
+				["at0041"] = <
+					text = <"Site name">
+					description = <"">
+				>
+				["at0042"] = <
+					text = <"Specialty">
+					description = <"">
+				>
+				["at0043"] = <
+					text = <"Patient present">
+					description = <"">
+				>
+				["at0046"] = <
+					text = <"Yes">
+					description = <"">
+				>
+				["at0047"] = <
+					text = <"No">
+					description = <"">
+				>
+				["at0048"] = <
+					text = <"Outside normal working hours">
+					description = <"">
+				>
+				["at0049"] = <
+					text = <"Yes">
+					description = <"">
+				>
+				["at0050"] = <
+					text = <"No">
+					description = <"">
+				>
+				["at0051"] = <
+					text = <"Unscheduled care">
+					description = <"">
+				>
+				["at0052"] = <
+					text = <"Yes">
+					description = <"">
+				>
+				["at0053"] = <
+					text = <"No">
+					description = <"">
+				>
+			>
+		>
+	>
