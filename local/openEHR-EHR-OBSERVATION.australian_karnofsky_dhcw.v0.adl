@@ -1,0 +1,140 @@
+archetype (adl_version=1.4; uid=4c06b775-21b5-40eb-b6c3-a354f6cc4fe6)
+	openEHR-EHR-OBSERVATION.australian_karnofsky_dhcw.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+
+description
+	original_author = <
+		["date"] = <"2022-06-27">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"0ad8cef7678952089504d5f8d75691b4">
+		["build_uid"] = <"a4e3b5ca-b3b1-3641-8b92-c02be2dafe7e">
+	>
+
+definition
+	OBSERVATION[at0000] matches {    -- Palliative karnofsky performance status (adult)
+		data matches {
+			HISTORY[at0001] matches {    -- History
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..*} matches {    -- Any event
+						data matches {
+							ITEM_TREE[at0029] matches {    -- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0017] occurrences matches {0..1} matches {    -- Australian karnofsky performance status
+										value matches {
+											100|[local::at0018],
+											90|[local::at0019],
+											80|[local::at0020],
+											70|[local::at0021],
+											60|[local::at0022],
+											50|[local::at0023],
+											40|[local::at0024],
+											30|[local::at0025],
+											20|[local::at0026],
+											10|[local::at0027],
+											0|[local::at0028]
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0004] matches {*}    -- Item tree
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Palliative karnofsky performance status (adult)">
+					description = <"australian_karnofsky_dhcw">
+				>
+				["at0001"] = <
+					text = <"History">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"">
+				>
+				["at0004"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0017"] = <
+					text = <"Australian karnofsky performance status">
+					description = <"">
+				>
+				["at0018"] = <
+					text = <"Normal, no complaints">
+					description = <"100% - Normal, no complaints, no evidence of disease">
+				>
+				["at0019"] = <
+					text = <"Carry on normal activity">
+					description = <"90% - Able to carry on normal activity, minor signs or symptoms of disease">
+				>
+				["at0020"] = <
+					text = <"Normal activity with effort">
+					description = <"80% - Normal activity with effort, some signs or symptoms of disease">
+				>
+				["at0021"] = <
+					text = <"Unable to carry on normal activity">
+					description = <"70% - Cares for self, but unable to carry on normal activity or to do active work">
+				>
+				["at0022"] = <
+					text = <"Occasional assistance">
+					description = <"60% - Able to care for most needs, but requires occasional assistance">
+				>
+				["at0023"] = <
+					text = <"Considerable assistance">
+					description = <"50% - Considerable assistance and frequent medical care required">
+				>
+				["at0024"] = <
+					text = <"Bed more than 50%">
+					description = <"40% - In bed more than 50% of the time">
+				>
+				["at0025"] = <
+					text = <"Completely bedfast">
+					description = <"30% - Almost completely bedfast">
+				>
+				["at0026"] = <
+					text = <"Totally bedfast">
+					description = <"20% - Totally bedfast and requiring extensive nursing care by professionals and / or family">
+				>
+				["at0027"] = <
+					text = <"Comatose or barely rousable">
+					description = <"10% - Comatose or barely rousable, unable to care for self, requires equivalent of institutional or hospital care, disease may be progressing rapidly">
+				>
+				["at0028"] = <
+					text = <"Dead">
+					description = <"0% - Dead">
+				>
+				["at0029"] = <
+					text = <"Tree">
+					description = <"">
+				>
+			>
+		>
+	>
