@@ -1,0 +1,95 @@
+archetype (adl_version=1.4; uid=0b67c70d-525a-416d-af19-8dda261eb48e)
+	openEHR-EHR-CLUSTER.cpr_decision_lock_status_rosi.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+
+description
+	original_author = <
+		["date"] = <"2022-01-31">
+		["name"] = <"Ian McNicoll">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"ian@freshehr.com">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"434baf334b5e06a461f9d21036f59fb8">
+		["build_uid"] = <"27445b18-6404-3522-b1af-6f139b40e725">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- CPR decision lock status
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {    -- Lock status
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0002,    -- CPR decison is locked
+							at0003]    -- CPR decision is not locked
+						}
+					}
+				}
+			}
+			ELEMENT[at0004] occurrences matches {0..1} matches {    -- DNACPR record source
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0005,    -- Record a current DNACPR decision (from a paper from)
+							at0006]    -- Create a new DNACPR decision
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"CPR decision lock status">
+					description = <"cpr decision lock status rosi">
+				>
+				["at0001"] = <
+					text = <"Lock status">
+					description = <"To record the locked status of a ROSI CPR decision.">
+				>
+				["at0002"] = <
+					text = <"CPR decison is locked">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"CPR decision is not locked">
+					description = <"">
+				>
+				["at0004"] = <
+					text = <"DNACPR record source">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"Record a current DNACPR decision (from a paper from)">
+					description = <"The record is copied from an existing DNACPR form">
+				>
+				["at0006"] = <
+					text = <"Create a new DNACPR decision">
+					description = <"A new digital DNACPR decision is created.">
+				>
+			>
+		>
+	>
