@@ -1,0 +1,81 @@
+archetype (adl_version=1.4; uid=107f0f66-70da-4548-9c8f-7d0723f04cb9)
+	openEHR-EHR-ADMIN_ENTRY.intervention_admin_dhcw.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+
+description
+	original_author = <
+		["date"] = <"2022-07-01">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"52d00417172ae9419eb0939eef0b5d02">
+		["build_uid"] = <"f4fb9a3d-e750-3ffe-85fe-6df025b4e5de">
+	>
+
+definition
+	ADMIN_ENTRY[at0000] occurrences matches {0..*} matches {    -- Intervention admin
+		data matches {
+			ITEM_TREE[at0001] matches {    -- Item tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0002] occurrences matches {0..1} matches {    -- Professional undertaking intervention
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0003] occurrences matches {0..1} matches {    -- Role
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0004] occurrences matches {0..1} matches {    -- Specialty
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Intervention admin">
+					description = <"intervention_admin_dhcw">
+				>
+				["at0001"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Professional undertaking intervention">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Role">
+					description = <"">
+				>
+				["at0004"] = <
+					text = <"Specialty">
+					description = <"">
+				>
+			>
+		>
+	>
