@@ -1,0 +1,64 @@
+archetype (adl_version=1.4; uid=a41979ce-4311-4c7d-902e-bf5a4e40db78)
+	openEHR-EHR-CLUSTER.intervention_dhcw.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+
+description
+	original_author = <
+		["date"] = <"2022-07-01">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"cf6de81d2660b89349c4da4ec17578a1">
+		["build_uid"] = <"15c4c3bc-9b37-3b0e-80bc-a092ddf0623a">
+	>
+
+definition
+	CLUSTER[at0000] occurrences matches {0..*} matches {    -- Intervention(s)
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {    -- Intervention
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0002] occurrences matches {0..1} matches {    -- Comment
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Intervention(s)">
+					description = <"intervention_dhcw">
+				>
+				["at0001"] = <
+					text = <"Intervention">
+					description = <"">
+				>
+				["at0002"] = <
+					text = <"Comment">
+					description = <"">
+				>
+			>
+		>
+	>
