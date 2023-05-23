@@ -1,0 +1,95 @@
+archetype (adl_version=1.4; uid=20ca256d-4b1c-43b0-b9da-526ff138558d)
+	openEHR-EHR-CLUSTER.reason_for_dnacpr_decision.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+
+description
+	original_author = <
+		["date"] = <"2021-09-13">
+		["name"] = <"Ian McNicoll">
+		["organisation"] = <"freshEHR Clinical Informatics Ltd.">
+		["email"] = <"ian@freshehr.com">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"0e9315126e285eac3d06b00044084130">
+		["build_uid"] = <"09ac9fdf-e744-3c97-a3f3-4dc9d3b574fa">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- CPR decision details
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0004] occurrences matches {0..*} matches {    -- Reason for CPR Decision
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0005,    -- CPR is unlikely to be successful
+							at0006,    -- Successful CPR is likely to result in a length and quality of life not in the best interests of the patient because
+							at0007]    -- Patient does not want to be resuscitated as evidenced by
+						}
+					}
+				}
+			}
+			ELEMENT[at0009] occurrences matches {0..1} matches {    -- Reason for unknown decision
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0008] occurrences matches {0..1} matches {    -- Comment
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"CPR decision details">
+					description = <"Reason for DNACPR decision">
+				>
+				["at0004"] = <
+					text = <"Reason for CPR Decision">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"CPR is unlikely to be successful">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"Successful CPR is likely to result in a length and quality of life not in the best interests of the patient because">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"Patient does not want to be resuscitated as evidenced by">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"Comment">
+					description = <"">
+				>
+				["at0009"] = <
+					text = <"Reason for unknown decision">
+					description = <"">
+				>
+			>
+		>
+	>
