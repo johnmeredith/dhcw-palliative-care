@@ -1,0 +1,312 @@
+archetype (adl_version=1.4; uid=b6bd0186-94f4-40a1-b3f7-b0f5425629f9)
+	openEHR-EHR-ADMIN_ENTRY.care_environment_dhcw.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+
+description
+	original_author = <
+		["date"] = <"2022-05-24">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"dcffdf709ddb745599e59541e825bab2">
+		["build_uid"] = <"5047d721-1ef8-3e2c-b13f-1d938e59c916">
+	>
+
+definition
+	ADMIN_ENTRY[at0000] matches {    -- Care environment details
+		data matches {
+			ITEM_TREE[at0001] matches {    -- Item tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0003] occurrences matches {0..1} matches {    -- Senior responsible clinician
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0004] occurrences matches {0..1} matches {    -- Senior responsible clinician speciality
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0008] occurrences matches {0..1} matches {    -- Care environment team
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0019,    -- All Wales Paediatric Palliative Care Network
+									at0020,    -- Aneurin Bevan SPCT Grange University Hospital
+									at0021,    -- Aneurin Bevan SPCT Nevill Hall Hospital
+									at0022,    -- Aneurin Bevan SPCT Royal Gwent Hospital
+									at0023,    -- Aneurin Bevan SPCT Ysbyty Ystrad Fawr
+									at0024,    -- Betsi Cadwalader SPCT Anglesey & Gwynedd (West)
+									at0025,    -- Betsi Cadwalader SPCT Conwy & Denbighshire (Central)
+									at0026,    -- Betsi Cadwalader SPCT Wrexham & Flintshire (East)
+									at0027,    -- Cardiff & Vale SPCT University Hospital Llandough
+									at0028,    -- Cardiff & Vale SPCT University Hospital of Wales
+									at0029,    -- City Hospice
+									at0030,    -- Cwm Taf Morgannwg SPCT Bridgend
+									at0031,    -- Cwm Taf Morgannwg SPCT Merthyr & Cynon
+									at0032,    -- Cwm Taf Morgannwg SPCT Rhondda & Taff Ely
+									at0033,    -- Hospice of the Valleys
+									at0034,    -- Hywel Dda SPCT Carmarthen
+									at0035,    -- Hywel Dda SPCT Ceredigion
+									at0036,    -- Hywel Dda SPCT Llanelli
+									at0037,    -- Hywel Dda SPCT Pembrokeshire
+									at0038,    -- St. David’s Hospice Newport, Monmouth, Torfaen, Caerphilly, South & Mid Powys
+									at0039,    -- St. David’s Hospice Llandudno
+									at0040]    -- Powys SPCT
+								}
+							}
+						}
+					}
+					ELEMENT[at0009] occurrences matches {0..1} matches {    -- Care setting
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0041,    -- Community - Specialist palliative care day therapy
+									at0042,    -- Community - Specialist palliative care domiciliary care
+									at0043,    -- Community - Specialist palliative care outpatient
+									at0044,    -- Inpatient - Specialist palliative care hospital support
+									at0045,    -- Inpatient - Specialist palliative care inpatient
+									at0046,    -- Paediatric palliative care - domiciliary care
+									at0047,    -- Paediatric palliative care - hospice
+									at0048,    -- Paediatric palliative care - hospital inpatient
+									at0049]    -- Paediatric palliative care - outpatient clinic
+								}
+							}
+						}
+					}
+					ELEMENT[at0010] occurrences matches {0..1} matches {    -- Care setting lead professional
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0011] occurrences matches {0..1} matches {    -- Care setting lead professional role
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0018] occurrences matches {0..1} matches {    -- Referral to care environment
+						value matches {
+							DV_DATE matches {*}
+						}
+					}
+					ELEMENT[at0014] occurrences matches {0..1} matches {    -- Start date
+						value matches {
+							DV_DATE matches {*}
+						}
+					}
+					ELEMENT[at0013] occurrences matches {0..1} matches {    -- Sequence
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0050,    -- First ever
+									at0051]    -- Other
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Care environment details">
+					description = <"Care Environment DHCW">
+				>
+				["at0001"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0003"] = <
+					text = <"Senior responsible clinician">
+					description = <"">
+				>
+				["at0004"] = <
+					text = <"Senior responsible clinician speciality">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"Care environment team">
+					description = <"">
+				>
+				["at0009"] = <
+					text = <"Care setting">
+					description = <"">
+				>
+				["at0010"] = <
+					text = <"Care setting lead professional">
+					description = <"">
+				>
+				["at0011"] = <
+					text = <"Care setting lead professional role">
+					description = <"">
+				>
+				["at0013"] = <
+					text = <"Sequence">
+					description = <"">
+				>
+				["at0014"] = <
+					text = <"Start date">
+					description = <"">
+				>
+				["at0018"] = <
+					text = <"Referral to care environment">
+					description = <"">
+				>
+				["at0019"] = <
+					text = <"All Wales Paediatric Palliative Care Network">
+					description = <"">
+				>
+				["at0020"] = <
+					text = <"Aneurin Bevan SPCT Grange University Hospital">
+					description = <"">
+				>
+				["at0021"] = <
+					text = <"Aneurin Bevan SPCT Nevill Hall Hospital">
+					description = <"">
+				>
+				["at0022"] = <
+					text = <"Aneurin Bevan SPCT Royal Gwent Hospital">
+					description = <"">
+				>
+				["at0023"] = <
+					text = <"Aneurin Bevan SPCT Ysbyty Ystrad Fawr">
+					description = <"">
+				>
+				["at0024"] = <
+					text = <"Betsi Cadwalader SPCT Anglesey & Gwynedd (West)">
+					description = <"">
+				>
+				["at0025"] = <
+					text = <"Betsi Cadwalader SPCT Conwy & Denbighshire (Central)">
+					description = <"">
+				>
+				["at0026"] = <
+					text = <"Betsi Cadwalader SPCT Wrexham & Flintshire (East)">
+					description = <"">
+				>
+				["at0027"] = <
+					text = <"Cardiff & Vale SPCT University Hospital Llandough">
+					description = <"">
+				>
+				["at0028"] = <
+					text = <"Cardiff & Vale SPCT University Hospital of Wales">
+					description = <"">
+				>
+				["at0029"] = <
+					text = <"City Hospice">
+					description = <"">
+				>
+				["at0030"] = <
+					text = <"Cwm Taf Morgannwg SPCT Bridgend">
+					description = <"">
+				>
+				["at0031"] = <
+					text = <"Cwm Taf Morgannwg SPCT Merthyr & Cynon">
+					description = <"">
+				>
+				["at0032"] = <
+					text = <"Cwm Taf Morgannwg SPCT Rhondda & Taff Ely">
+					description = <"">
+				>
+				["at0033"] = <
+					text = <"Hospice of the Valleys">
+					description = <"">
+				>
+				["at0034"] = <
+					text = <"Hywel Dda SPCT Carmarthen">
+					description = <"">
+				>
+				["at0035"] = <
+					text = <"Hywel Dda SPCT Ceredigion">
+					description = <"">
+				>
+				["at0036"] = <
+					text = <"Hywel Dda SPCT Llanelli">
+					description = <"">
+				>
+				["at0037"] = <
+					text = <"Hywel Dda SPCT Pembrokeshire">
+					description = <"">
+				>
+				["at0038"] = <
+					text = <"St. David’s Hospice Newport, Monmouth, Torfaen, Caerphilly, South & Mid Powys">
+					description = <"">
+				>
+				["at0039"] = <
+					text = <"St. David’s Hospice Llandudno">
+					description = <"">
+				>
+				["at0040"] = <
+					text = <"Powys SPCT">
+					description = <"">
+				>
+				["at0041"] = <
+					text = <"Community - Specialist palliative care day therapy">
+					description = <"">
+				>
+				["at0042"] = <
+					text = <"Community - Specialist palliative care domiciliary care">
+					description = <"">
+				>
+				["at0043"] = <
+					text = <"Community - Specialist palliative care outpatient">
+					description = <"">
+				>
+				["at0044"] = <
+					text = <"Inpatient - Specialist palliative care hospital support">
+					description = <"">
+				>
+				["at0045"] = <
+					text = <"Inpatient - Specialist palliative care inpatient">
+					description = <"">
+				>
+				["at0046"] = <
+					text = <"Paediatric palliative care - domiciliary care">
+					description = <"">
+				>
+				["at0047"] = <
+					text = <"Paediatric palliative care - hospice">
+					description = <"">
+				>
+				["at0048"] = <
+					text = <"Paediatric palliative care - hospital inpatient">
+					description = <"">
+				>
+				["at0049"] = <
+					text = <"Paediatric palliative care - outpatient clinic">
+					description = <"">
+				>
+				["at0050"] = <
+					text = <"First ever">
+					description = <"">
+				>
+				["at0051"] = <
+					text = <"Other">
+					description = <"">
+				>
+			>
+		>
+	>
