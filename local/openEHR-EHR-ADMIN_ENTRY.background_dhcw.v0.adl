@@ -1,0 +1,89 @@
+archetype (adl_version=1.4; uid=1fcb418d-1f0a-44bd-805f-11c2a8c18907)
+	openEHR-EHR-ADMIN_ENTRY.background_dhcw.v0
+
+concept
+	[at0000]
+
+language
+	original_language = <[ISO_639-1::en]>
+
+description
+	original_author = <
+		["date"] = <"2022-07-07">
+	>
+	lifecycle_state = <"unmanaged">
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+		>
+	>
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"5a47ca63426d25fd61c4a22d8d7d3892">
+		["build_uid"] = <"fd09cb03-0974-3658-840d-4b71de3864e2">
+	>
+
+definition
+	ADMIN_ENTRY[at0000] matches {    -- Background
+		data matches {
+			ITEM_TREE[at0001] matches {    -- Item tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0002] occurrences matches {0..1} matches {    -- Social history
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					CLUSTER[at0003] occurrences matches {0..1} matches {    -- Occupation / school history
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0004] occurrences matches {0..1} matches {    -- Dates (if known)
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0005] occurrences matches {0..1} matches {    -- Occupation / school
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Background">
+					description = <"background_dhcw">
+				>
+				["at0001"] = <
+					text = <"Item tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Social history">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"Occupation / school history">
+					description = <"">
+				>
+				["at0004"] = <
+					text = <"Dates (if known)">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"Occupation / school">
+					description = <"">
+				>
+			>
+		>
+	>
